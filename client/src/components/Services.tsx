@@ -24,7 +24,7 @@ const iconMap: Record<string, LucideIcon> = {
 export function Services() {
   const { data: services, isLoading } = useServices();
 
-  // Fallback data in case API is empty during generation
+  // Fallback data
   const fallbackServices = [
     { title: "Web Development", description: "Custom websites and web applications built with modern technologies.", icon: "Code2" },
     { title: "Mobile App Development", description: "Native and cross-platform mobile applications for iOS and Android.", icon: "Smartphone" },
@@ -39,8 +39,22 @@ export function Services() {
   const displayServices = (services && services.length > 0) ? services : fallbackServices;
 
   return (
-    <section id="services" className="py-24 bg-background">
-      <div className="container px-4 md:px-6 mx-auto">
+    <section
+      id="services"
+      className="relative py-24 overflow-hidden"
+    >
+      {/* Background Image + Gradient Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/img.jpg" // put your image in public/images
+          alt="Services Background"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-animated mix-blend-multiply opacity-60"></div>
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+      </div>
+
+      <div className="container px-4 md:px-6 mx-auto relative z-10">
         <SectionHeading 
           title="Our Services" 
           subtitle="Comprehensive Technology Solutions for Your Business"
@@ -64,13 +78,13 @@ export function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="group bg-card p-8 rounded-2xl shadow-lg shadow-black/5 border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 relative overflow-hidden"
+                  className="group bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg shadow-black/10 border border-white/20 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <Icon className="w-24 h-24 transform translate-x-4 -translate-y-4" />
                   </div>
                   
-                  <div className="h-14 w-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <div className="h-14 w-14 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     <Icon className="h-7 w-7" />
                   </div>
                   
@@ -78,7 +92,7 @@ export function Services() {
                     {service.title}
                   </h3>
                   
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-gray-100 leading-relaxed">
                     {service.description}
                   </p>
                 </motion.div>

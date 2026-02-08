@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -24,22 +24,26 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "py-4 bg-background/80 backdrop-blur-md shadow-sm border-b border-border/50" 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-animated ${
+        isScrolled
+          ? "py-4 bg-background/80 backdrop-blur-md shadow-sm border-b border-border/50"
           : "py-6 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link 
-          to="hero" 
-          smooth={true} 
-          duration={500} 
+        <Link
+          to="hero"
+          smooth={true}
+          duration={500}
           className="cursor-pointer flex items-center gap-2 group"
         >
-          <div className="bg-primary p-2 rounded-lg text-primary-foreground group-hover:scale-105 transition-transform duration-200">
-            <Code2 className="h-6 w-6" />
+          <div className="p-0 rounded-lg group-hover:scale-105 transition-transform duration-200">
+            <img
+              src="/images/cropped-image.png" // <-- Replace this with your logo path
+              alt="Macky's Tech Logo"
+              className="h-8 w-auto"
+            />
           </div>
           <span className="text-xl font-bold font-display tracking-tight group-hover:text-primary transition-colors">
             Macky's Tech

@@ -100,3 +100,38 @@
     @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-800/50 shadow-xl;
   }
 }
+
+.bg-gradient-animated {
+  background: linear-gradient(135deg, #f0f0f3, #eceff1, #bdbabd);
+  background-size: 600% 600%; /* super important */
+  animation: gradientShift 15s ease infinite;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #b07ba7, #6973ab, #edeef1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(2, start) infinite;
+  /* make cursor same gradient as text */
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
