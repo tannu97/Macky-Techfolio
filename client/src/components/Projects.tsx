@@ -17,7 +17,24 @@ const placeholderImages = [
 ];
 
 export function Projects() {
-  const { data: projects, isLoading } = useProjects();
+ const projects = [
+  {
+    id: 1,
+    title: "Billing System",
+    description: "Super market billing system with inventory management.",
+    category: "Software",
+    imageUrl: "/assets/img/navimage/mackys-logo/png/logo.png",
+    techStack: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 2,
+    title: "Portfolio Website",
+    description: "Responsive portfolio website for Macky's Tech.",
+    category: "Web",
+    imageUrl: "/assets/img/navimage/mackys-logo/png/logo.png",
+    techStack: ["React", "Tailwind"],
+  },
+];
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProjects = projects?.filter(
