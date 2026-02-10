@@ -46,7 +46,7 @@ export function Services() {
       {/* Background Image + Gradient Overlay */}
       <div className="absolute inset-0">
         <img
-          src="/images/img.jpg" // put your image in public/images
+          src="/images/ser.jpg" // put your image in public/images
           alt="Services Background"
           className="w-full h-full object-cover object-center"
         />
